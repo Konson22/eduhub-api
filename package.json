@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "concurrently \"npm run main\" \"npm run ussd\"",
+    "main": "nodemon main.js",
+    "ussd": "nodemon ussdServer.js"
   },
   "author": "",
   "license": "ISC",

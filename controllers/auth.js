@@ -57,15 +57,15 @@ const registerUser = async (req, res) => {
                 sql = 'INSERT INTO users(name, email, college, year, seminster, avatar, password) VALUES(?,?,?,?,?,?,?)'
                 db.run(sql, [name, email, college, '', '', '/images/user.png', hashPass], async function(err) {
                     if(err) throw err
-                    const userCredentials = {userID:this.lastID, name, email, avatar:'/images/user.png'}
-                    const ACCESS_TOKEN = await createToken(userCredentials);
+                    const prfile = {userID:this.lastID, name, email, avatar:'/images/user.png'}
+                    const ACCESS_TOKEN = await createToken(prfile);
                     res.cookie('ACCESS_TOKEN', ACCESS_TOKEN, {
                         expires: new Date(Date.now() + (3600 * 1000 * 24 * 180 * 1)),
                         httpOnly: true,
                         sameSite: "none",
                         secure: 'false',
                     });
-                    res.json({ACCESS_TOKEN, userCredentials})
+                    res.json({ACCESS_TOKEN, prfile})
                 })
             }
         })
