@@ -35,16 +35,23 @@ const db = new sqlite.Database("./database.db", sqlite.OPEN_READWRITE, err => er
 // )`;
 
 
-// const sql = `CREATE TABLE users(
-//     id INTEGER PRIMARY KEY, 
-//     name TEXT NOT NULL,
-//     email TEXT NOT NULL,
-//     college TEXT NOT NULL,
-//     year TEXT,
-//     seminster TEXT NOT NULL,
-//     avatar TEXT,
-//     password TEXT NOT NULL
-// )`;
+const sql = `CREATE TABLE usersTable(
+    id INTEGER PRIMARY KEY, 
+    name TEXT NOT NULL,
+    gender TEXT NOT NULL,
+    about TEXT,
+    email TEXT NOT NULL,
+    phone NUMBER,
+    college TEXT NOT NULL,
+    year TEXT,
+    seminster TEXT,
+    avatar TEXT,
+    facebook TEXT,
+    twitter TEXT,
+    instagram TEXT,
+    linkedIn TEXT,
+    password TEXT NOT NULL
+)`;
 
 
 db.run(sql)

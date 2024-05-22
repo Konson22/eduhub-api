@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run main\" \"npm run ussd\"",
+    "dev": "concurrently \"npm run main\" \"npm run ussd\"",
     "main": "nodemon main.js",
     "ussd": "nodemon ussdServer.js"
   },
